@@ -18,6 +18,7 @@ import com.vinicius.hrpayroll.entities.Worker;
 @Service
 public class PaymentService {
 	
+	/* Buscando host do arquivo.porperties*/
 	@Value("${hr-worker.host}")
 	private String workerHost;
 	
@@ -26,6 +27,7 @@ public class PaymentService {
 
 	public Payment getPayment( long workerId, int days ) {
 		
+		/* Colocando as uris das variaveis*/
 		Map<String, String> uriVariables = new HashMap<String, String>();
 		uriVariables.put("id", "" + workerId);
 		
