@@ -23,6 +23,9 @@
 
 Script SQL
 
-INSERT INTO tb_worker (name, daily_Income) VALUES ('Bob', 200.0);
-INSERT INTO tb_worker (name, daily_Income) VALUES ('Maria', 300.0);
-INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);
+<ul>
+ <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Bob', 200.0);</li>
+ <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Maria', 300.0);</li>
+ <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);</li>
+</ul>
+
