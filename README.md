@@ -30,6 +30,8 @@ Script SQL
  <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);</li>
 </ul>
 
+<br></br>
+
 No Arquivo application.properties coloque o seguinte:
 
 <ul>
