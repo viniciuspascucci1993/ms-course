@@ -7,6 +7,10 @@ import com.vinicius.hrpayroll.entities.Payment;
 import com.vinicius.hrpayroll.entities.Worker;
 import com.vinicius.hrpayroll.feignclient.WorkerFeignClient;
 
+/**
+ * Service que será responsável a consulta, acesso a base de dados, utilização de FEIGN,
+ * @author Vinicius-PC.
+ */
 @Service
 public class PaymentService {
 	

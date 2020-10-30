@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vinicius.hrpayroll.entities.Payment;
 import com.vinicius.hrpayroll.services.PaymentService;
 
+/**
+ * Resource que serão nossos controladores.
+ * @author Vinicius-PC.
+ */
 @RestController
 @RequestMapping( value = "/payments")
 public class PaymentResource {
