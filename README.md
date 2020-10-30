@@ -30,3 +30,19 @@ Script SQL
  <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);</li>
 </ul>
 
+No Arquivo application.properties coloque o seguinte:
+
+<ul>
+ <li>spring.application.name=hr-worker</li>
+ <li>server.port=8001</li>
+ <br</br>
+ # Database configuration
+ <li>spring.datasource.url=jdbc:h2:mem:testdb</li> 
+ <li>spring.datasource.username=sa</li>
+ <li>spring.datasource.password=</li>
+ <br></br>
+ # SCRIPTS SQL
+ <li>spring.h2.console.enabled=true</li>
+ <br></br>
+ # URL Base
+ <li>spring.h2.console.path=/h2-console</li>
