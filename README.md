@@ -9,42 +9,50 @@
   <li>Facebook: https://www.facebook.com/vinicius.pascucci </li>
   <li>Github: https://github.com/viniciuspascucci1993 </li>
  
-<br />
+# Fase 1: Comunicação simples, Feign, Ribbon
 
-<h1>Fase 1: Comunicação simples, Feign, Ribbon</h1>
+### 1.1 Criar projeto hr-worker
 
-<br />
-
-<ol>
-  <li>Criar projeto hr-worker</li>
-  <li>Implementar projeto hr-worker</li>
-</ol>
-
-<br />
+### 1.2 Implementar projeto hr-worker
 
 Script SQL
+```sql
+INSERT INTO tb_worker (name, daily_Income) VALUES ('Bob', 200.0);
+INSERT INTO tb_worker (name, daily_Income) VALUES ('Maria', 300.0);
+INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);
+```
 
-<ul>
- <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Bob', 200.0);</li>
- <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Maria', 300.0);</li>
- <li>INSERT INTO tb_worker (name, daily_Income) VALUES ('Alex', 250.0);</li>
-</ul>
+application.properties
+```
+spring.application.name=hr-worker
+server.port=8001
 
-<br></br>
+# Database configuration
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
 
-No Arquivo application.properties coloque o seguinte:
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+```
 
-<ul>
- <li>spring.application.name=hr-worker</li>
- <li>server.port=8001</li>
- <br</br>
- # Database configuration
- <li>spring.datasource.url=jdbc:h2:mem:testdb</li> 
- <li>spring.datasource.username=sa</li>
- <li>spring.datasource.password=</li>
- <br></br>
- # SCRIPTS SQL
- <li>spring.h2.console.enabled=true</li>
- <br></br>
- # URL Base
- <li>spring.h2.console.path=/h2-console</li>
+### 1.3 Criar projeto hr-payroll
+
+application.properties
+```
+spring.application.name=hr-payroll
+server.port=8101
+```
+
+### 1.4 Implementar projeto hr-payroll (mock)
+
+### 1.5 RestTemplate
+
+### 1.6 Feign
+
+### 1.7 Ribbon load balancing
+
+Run configuration
+```
+-Dserver.port=8002
+```
