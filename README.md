@@ -2,7 +2,7 @@
 
 <br />
  - @Author: Vinicius Torres Pascucci:
- <br>
+ <br />
  <ul>
   <li>Linkedin: https://www.linkedin.com/in/vinicius-pascucci-b06744b5/</li>
   <li>Facebook: https://www.facebook.com/vinicius.pascucci </li>
