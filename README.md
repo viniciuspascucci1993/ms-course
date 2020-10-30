@@ -12,6 +12,9 @@
 
 <h1>Fase 1: Comunicação simples, Feign, Ribbon</h1>
 
+<br>
+
 <ol>
- <ul>Criar projeto hr-worker</ul>
+  <li>Criar projeto hr-worker</li>
+  <li>Implementar projeto hr-worker</li>
 </ol>
