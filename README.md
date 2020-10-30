@@ -3,4 +3,4 @@
 <br>
  - @Author: Vinicius Torres Pascucci:
  <ul>
-  <li>Linkedin: <a href="https://www.linkedin.com/in/vinicius-pascucci-b06744b5/" </a></li>
+  <li>Linkedin: <a href="https://www.linkedin.com/in/vinicius-pascucci-b06744b5/" </a> </li>
