@@ -56,3 +56,41 @@ Run configuration
 ```
 -Dserver.port=8002
 ```
+
+Fase 2: Eureka, Hystrix, Zuul
+2.1 Criar projeto hr-eureka-server
+2.2 Configurar hr-eureka-server
+Porta padrão: 8761
+
+Acessar o dashboard no navegador: http://localhost:8761
+
+2.3 Configurar clientes Eureka
+Eliminar o Ribbon de hr-payroll:
+
+Dependência Maven
+Annotation no programa principal
+Configuração em application.properties
+Atenção: aguardar um pouco depois de subir os microsserviços
+
+2.4 Random port para hr-worker
+server.port=${PORT:0}
+
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
+Atenção: deletar as configurações múltiplas de execução de hr-worker
+
+2.5 Tolerância a falhas com Hystrix
+2.6 Timeout de Hystrix e Ribbon
+Atenção: testar antes sem a annotation do Hystrix
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=60000
+ribbon.ConnectTimeout=10000
+ribbon.ReadTimeout=20000
+2.7 Criar projeto hr-zuul-server
+2.8 Configurar hr-zuul-server
+Porta padrão: 8765
+
+2.9 Random port para hr-payroll
+2.10 Zuul timeout
+Mesmo o timeout de Hystrix e Ribbon configurado em um microsserviço, se o Zuul não tiver seu timeout configurado, para ele será um problema de timeout. Então precisamos configurar o timeout no Zuul.
+
+Se o timeout estiver configurado somente em Zuul, o Hystrix vai chamar o método alternativo no microsserviço específico.
