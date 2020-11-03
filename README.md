@@ -112,3 +112,39 @@ Porta padrão: 8765
 Mesmo o timeout de Hystrix e Ribbon configurado em um microsserviço, se o Zuul não tiver seu timeout configurado, para ele será um problema de timeout. Então precisamos configurar o timeout no Zuul.
 
 Se o timeout estiver configurado somente em Zuul, o Hystrix vai chamar o método alternativo no microsserviço específico.
+
+# Fase 3: Configuração centralizada
+
+### 3.1 Criar projeto hr-config-server
+
+### 3.2 Configurar projeto hr-config-server
+
+Quando um microsserviço é levantado, antes de se registrar no Eureka, ele busca as configurações no repositório central de configurações.
+
+hr-worker.properties
+```
+test.config=My config value default profile
+```
+hr-worker-test.properties
+```
+test.config=My config value test profile
+```
+Teste:
+```
+http://localhost:8888/hr-worker/default
+http://localhost:8888/hr-worker/test
+```
+
+### 3.3 hr-worker como cliente do servidor de configuração, profiles ativos
+
+No arquivo bootstrap.properties configuramos somente o que for relacionado com o servidor de configuração, e também o profile do projeto.
+
+Atenção: as configurações do bootstrap.properties tem prioridade sobre as do application.properties
+
+### 3.4 Actuator para atualizar configurações em runtime
+
+Atenção: colocar @RefreshScope em toda classe que possua algum acesso às configurações
+
+### 3.5 Repositório Git privativo
+
+Atenção: reinicie a IDE depois de adicionar as variáveis de ambiente
