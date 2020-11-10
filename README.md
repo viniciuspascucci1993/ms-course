@@ -148,3 +148,83 @@ Atenção: colocar @RefreshScope em toda classe que possua algum acesso às conf
 ### 3.5 Repositório Git privativo
 
 Atenção: reinicie a IDE depois de adicionar as variáveis de ambiente
+
+# Fase 4: autenticação e autorização
+
+### 4.1 Criar projeto hr-user
+
+### 4.2 Configurar projeto hr-user
+
+### 4.3 Entidades User, Role e associação N-N
+
+### 4.4 Carga inicial do banco de dados
+```sql
+INSERT INTO tb_user (name, email, password) VALUES ('Nina Brown', 'nina@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
+INSERT INTO tb_user (name, email, password) VALUES ('Leia Red', 'leia@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
+
+INSERT INTO tb_role (role_name) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_role (role_name) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+```
+
+### 4.5 UserRepository, UserResource, Zuul config
+
+### 4.6 Criar projeto hr-oauth
+
+### 4.7 Configurar projeto hr-oauth
+
+### 4.8 UserFeignClient
+
+### 4.9 Login e geração do Token JWT
+
+Source -> Override -> configure(AuthenticationManagerBuilder)
+
+Source -> Override -> authenticationManager()
+
+Basic authorization = "Basic " + Base64.encode(client-id + ":" + client-secret)
+
+### 4.10 Autorização de recursos pelo gateway Zuul
+
+### 4.11 Deixando o Postman top
+
+Variáveis:
+- api-gateway: http://localhost:8765
+- config-host: http://localhost:8888
+- client-name: CLIENT-NAME
+- client-secret: CLIENT-SECRET
+- username: leia@gmail.com
+- password: 123456
+- token: 
+
+Script para atribuir token à variável de ambiente do Postman:
+```js
+if (responseCode.code >= 200 && responseCode.code < 300) {
+    var json = JSON.parse(responseBody);
+    postman.setEnvironmentVariable('token', json.access_token);
+}
+```
+### 4.12 Configuração de segurança para o servidor de configuração
+
+### 4.13 Configurando CORS
+
+Teste no navegador:
+```js
+fetch("http://localhost:8765/hr-worker/workers", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site"
+  },
+  "referrer": "http://localhost:3000",
+  "referrerPolicy": "no-referrer-when-downgrade",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+});
+```
